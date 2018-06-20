@@ -35,9 +35,9 @@ Caba Heilbron, Fabian, Victor Escorcia, Bernard Ghanem, and Juan Carlos Niebles.
 3. [Training](#training)
 4. [Testing](#testing)
 
-### Installation:
+### 安装 Installation:
 
-1. Clone the R-C3D repository.
+1. 复制仓库 Clone the R-C3D repository.
   	```Shell
   	git clone --recursive git@github.com:VisionLearningGroup/R-C3D.git
   	```
@@ -48,7 +48,7 @@ Caba Heilbron, Fabian, Victor Escorcia, Bernard Ghanem, and Juan Carlos Niebles.
   
 	```Shell
 	cd ./caffe3d
-	
+	# 需要修改一些 编译配置
 	# If have all of the requirements installed and your Makefile.config in place, then simply do:
 	make -j8 && make pycaffe
 	```
