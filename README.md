@@ -64,21 +64,28 @@ Caba Heilbron, Fabian, Victor Escorcia, Bernard Ghanem, and Juan Carlos Niebles.
 	make
 	```
 
-### Preparation:
+	可能还会由于python版本问题编译出错
+	将系统python默认版本切换到 python2.7
+
+	sudo rm -rf /usr/bin/python
+	sudo ln -s /usr/bin/python2.7 /usr/bin/python
+
+
+### 准备数据集 Preparation:
 
 1. Download the ground truth annatations and videos in ActivityNet dataset.
 
 	```Shell
 	cd ./preprocess/activityNet/
 	
-	# Download the groud truth annotations in ActivityNet dataset.
+	# Download the groud truth annotations in ActivityNet dataset 标注文件.
 	wget http://ec2-52-11-11-89.us-west-2.compute.amazonaws.com/files/activity_net.v1-3.min.json
 	
-	# Download the videos in ActivityNet dataset into ./preprocess/activityNet/videos.
+	# Download the videos in ActivityNet dataset into ./preprocess/activityNet/videos 视频数据集.
 	python download_video.py
 	```
 
-2. Extract frames from downloaded videos in 25 fps.
+2. Extract frames from downloaded videos in 25 fps 处理视频.
 
 	```Shell
 	# training video frames are saved in ./preprocess/activityNet/frames/training/
@@ -86,7 +93,7 @@ Caba Heilbron, Fabian, Victor Escorcia, Bernard Ghanem, and Juan Carlos Niebles.
 	python generate_frames.py
 	```
 
-3. Generate the pickle data for training and testing R-C3D model.
+3. Generate the pickle data for training and testing R-C3D model 生成训练和验证素材.
 
 	```Shell
   	# generate training data
@@ -95,18 +102,18 @@ Caba Heilbron, Fabian, Victor Escorcia, Bernard Ghanem, and Juan Carlos Niebles.
 	python generate_roidb_validation.py
   	```
 
-### Training:
+### 训练 Training:
 	
-1. Download C3D classification pretrain model to ./pretrain/ .
+1. 下载预训练模型 Download C3D classification pretrain model to ./pretrain/ .
 
    The C3D model weight pretrained on Sports1M and finetuned on ActivityNet dataset is provided in: [caffemodel .](https://drive.google.com/file/d/131Cpuq1FndydeHzu38TY0baiS-uyN71w/view)
 
-2. In R-C3D root folder, run:
+2. 运行训练脚本 In R-C3D root folder, run:
 	```Shell
 	./experiments/activitynet/script_train.sh
   	```
 
-### Testing:
+### 测试 Testing:
 
 1. Download one sample R-C3D model to ./snapshot/ .
 
@@ -115,7 +122,7 @@ Caba Heilbron, Fabian, Victor Escorcia, Bernard Ghanem, and Juan Carlos Niebles.
    The provided R-C3D model has the Average-mAP 14.4% on the validation set.
    
    
-2. In R-C3D root folder, generate the prediction log file on the validation set.
+2. 预测 In R-C3D root folder, generate the prediction log file on the validation set.
 	```Shell
 	./experiments/activitynet/test/script_test.sh
   	```
