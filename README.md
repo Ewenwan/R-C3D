@@ -52,6 +52,10 @@ Caba Heilbron, Fabian, Victor Escorcia, Bernard Ghanem, and Juan Carlos Niebles.
 	# If have all of the requirements installed and your Makefile.config in place, then simply do:
 	make -j8 && make pycaffe
 	```
+[Makefile.config 参考修改](https://github.com/Ewenwan/MVision/blob/master/darknect/caffe/caffe_src_change/Makefile.config)
+
+[由于cudnn版本较新，编译可能出错，参考cudnn.hpp修改](https://github.com/Ewenwan/MVision/blob/master/darknect/caffe/caffe_src_change/cudnn.hpp)
+
 
 3. Build R-C3D lib folder.
 
